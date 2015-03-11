@@ -43,6 +43,9 @@ def run():
     print "Received "+response.requestedPerson.name
     response = stub.GetAll(addressBook_pb2.GetAllRequest(dummy='1'), _TIMEOUT_SECONDS)
     print "All clients received" + str(len(response.person))
+    for person in response.person:
+        print person.name
+
 
 if __name__ == '__main__':
   run()
